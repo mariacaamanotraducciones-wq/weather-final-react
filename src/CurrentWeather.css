@@ -1,0 +1,22 @@
+.today-weather {
+  border-top: 1px solid #f9f7fe;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.current-weather {
+  display: flex;
+  font-weight: 900;
+}
+.weather-Icon {
+  width: 88px;
+  height: 88px;
+}
+.current-temperature {
+  line-height: 88px;
+  font-size: 88px;
+}
+.weather-Unit {
+  font-size: 28px;
+  margin-top: 6px;
+}
