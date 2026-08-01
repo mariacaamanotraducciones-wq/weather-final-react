@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+  position: relative;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

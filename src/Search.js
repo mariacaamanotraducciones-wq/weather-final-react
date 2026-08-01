@@ -7,7 +7,7 @@ export default function Search() {
         <input
           type="text"
           placeholder="Enter a city"
-          className="search-imput"
+          className="search-input"
           id="search-input"
           required
         />

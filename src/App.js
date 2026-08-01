@@ -7,16 +7,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Weather app</h1>
         <Search />
         <Main />
-        <footer>
-          Coded by Maria Caamano and is {""}
-          <a
-            href="https://github.com/mariacaamanotraducciones-wq/weather-final-react"
-            target="_blank"
-            rel="noreferrer"
-          >
+
+        {/* Footer moved here, right before the closing container div */}
+        <footer className="footer">
+          Coded by Maria Caamano and is{" "}
+          <a href="https://github.com" target="_blank" rel="noreferrer">
             Open-sourced
           </a>
         </footer>
