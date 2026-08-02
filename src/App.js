@@ -12,7 +12,11 @@ function App() {
         <Main city={city} />
         <footer className="footer">
           Coded by Maria Caamano and is{" "}
-          <a href="https://github.com" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/mariacaamanotraducciones-wq/weather-final-react"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open-sourced
           </a>
         </footer>
