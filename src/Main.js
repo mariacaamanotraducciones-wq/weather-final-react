@@ -2,11 +2,11 @@ import React from "react";
 import CurrentWeather from "./CurrentWeather";
 import "./Main.css";
 
-export default function Main() {
+export default function Main(props) {
   return (
     <main>
       <div className="today-weather">
-        <CurrentWeather value="Paris" unit="°C" />
+        <CurrentWeather value={props.city} />
       </div>
     </main>
   );

@@ -5,6 +5,13 @@ import axios from "axios";
 
 export default function CurrentWeather(props) {
   const [weatherData, setWeatherData] = useState({});
+  const [currentSearch, setCurrentSearch] = useState("");
+  const [unit, setUnit] = useState("celsius");
+
+  if (props.value !== currentSearch) {
+    setCurrentSearch(props.value);
+    setWeatherData({ ready: false });
+  }
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -17,6 +24,19 @@ export default function CurrentWeather(props) {
       iconUrl: response.data.condition.icon_url,
       date: new Date(response.data.time * 1000),
     });
+  }
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
+
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  function fahrenheitCalculation() {
+    return Math.round((weatherData.temperature * 9) / 5 + 32);
   }
   if (weatherData.ready) {
     return (
@@ -42,9 +62,27 @@ export default function CurrentWeather(props) {
             className="weather-icon"
           />
           <span className="current-temperature" id="temperature">
-            {weatherData.temperature}
+            {unit === "celsius"
+              ? weatherData.temperature
+              : fahrenheitCalculation()}
           </span>
-          <span className="weather-Unit">{props.unit}</span>
+          <span className="weather-Unit">
+            {unit === "celsius" ? (
+              <>
+                °C |{" "}
+                <a href="/" onClick={showFahrenheit}>
+                  °F
+                </a>
+              </>
+            ) : (
+              <>
+                <a href="/" onClick={showCelsius}>
+                  °C
+                </a>{" "}
+                | °F
+              </>
+            )}
+          </span>
         </div>
       </div>
     );
