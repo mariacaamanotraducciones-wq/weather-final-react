@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./CurrentWeather.css";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
+
 export default function CurrentWeather(props) {
   const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
@@ -13,8 +15,7 @@ export default function CurrentWeather(props) {
       wind: Math.round(response.data.wind.speed),
       description: response.data.condition.description,
       iconUrl: response.data.condition.icon_url,
-      day: "Sunday",
-      time: "11:00",
+      date: new Date(response.data.time * 1000),
     });
   }
   if (weatherData.ready) {
@@ -23,8 +24,10 @@ export default function CurrentWeather(props) {
         <div className="weather-details-section">
           <h1 className="current-city">{weatherData.city}</h1>
           <p className="weather-subtext">
-            {weatherData.day} {weatherData.time},{" "}
-            <span className="description">{weatherData.description}</span>
+            <FormattedDate date={weatherData.date} />,{" "}
+            <span className="description text-capitalize">
+              {weatherData.description}
+            </span>
           </p>
           <p className="weather-subtext">
             Humidity: <strong>{weatherData.humidity}%</strong>, Wind:{" "}
